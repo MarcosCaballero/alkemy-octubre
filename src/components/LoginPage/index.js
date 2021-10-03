@@ -47,13 +47,13 @@ const LoginPage = (props) => {
                         message: res.data.message
                     })
                     // console.log(res.data)
-                    localStorage.setItem("Token", res.data.token)
                     setAuthorization({
                         username: "",
                         balance: 0,
                         token: res.data.token
                     })
                     setLogin(true)
+                    localStorage.setItem("Token", res.data.token)
                 } else {
                     setMessage({
                         show: true,

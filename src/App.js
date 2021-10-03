@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React,{ useState, useEffect } from 'react';
 import Home from './components/Home';
 import LoginPage from './components/LoginPage';
@@ -7,6 +6,8 @@ import LoginPage from './components/LoginPage';
 function App() {
 
     const [ login, setLogin ] = useState(false)
+
+    const [ authorize, setAuthorize ] = useState(false)
     
     const [ authorization, setAuthorization ] = useState({
         username: "",
@@ -20,28 +21,13 @@ function App() {
     })
 
     useEffect(() => {
-
-        // const token = localStorage.getItem("Token") // undefined
-
-        // if(authorization.token !== "" ) {
-        //     axios.get(process.env.REACT_APP_USER_ROUTE, {
-        //         headers: {
-        //             "authorization": token,
-        //         }
-        //     }).then(res => {
-        //         console.log(res)
-        //         setAuthorization({
-        //             ...authorization,
-        //             username: res.data.username,
-        //             balance: res.data.balance
-        //         })
-        //     })
-        //     // console.log(token)
-        // } else {
-        //     console.log("Algo tiene el token" + token)
-        // }
-
-    }, [login]);
+        if(login === true){
+            setAuthorize(true)
+            console.log("autorizado para entrar a la app")
+        } else {
+            return
+        }
+    }, [login, authorize]);
 
     useEffect(() => {
         
@@ -59,7 +45,7 @@ function App() {
     return ( 
     <>
         { message.show !== false && message.message }
-        { login 
+        { login === true && authorize === true
         ? <Home setMessage={ setMessage } setAuthorization={ setAuthorization } authorization={ authorization } /> 
         : <LoginPage setLogin={ setLogin } setMessage={ setMessage } setAuthorization={ setAuthorization } />
         }
