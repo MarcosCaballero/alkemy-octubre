@@ -53,9 +53,7 @@ const LoginPage = (props) => {
                         balance: 0,
                         token: res.data.token
                     })
-                    setTimeout(() => {
-                        setLogin(true)
-                    }, 3000)    
+                    setLogin(true)
                 } else {
                     setMessage({
                         show: true,

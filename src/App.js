@@ -59,7 +59,7 @@ function App() {
     return ( 
     <>
         { message.show !== false && message.message }
-        { login === true
+        { login 
         ? <Home setMessage={ setMessage } setAuthorization={ setAuthorization } authorization={ authorization } /> 
         : <LoginPage setLogin={ setLogin } setMessage={ setMessage } setAuthorization={ setAuthorization } />
         }
