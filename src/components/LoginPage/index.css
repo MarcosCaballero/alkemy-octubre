@@ -1,0 +1,15 @@
+.Login-Page-container {
+    width: calc(100% - 200px);
+    height: 100%;
+    margin: 30px 50px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.gif-login {
+    height: 0;
+    padding-bottom: 74%; 
+    position: relative;
+}

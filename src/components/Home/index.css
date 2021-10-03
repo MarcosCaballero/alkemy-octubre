@@ -1,0 +1,10 @@
+.home-div {
+    display: flex;
+    flex-direction: row;
+    width: calc(100vw - 40px);
+}
+
+.Home-container {
+    padding: 20px;
+}
+

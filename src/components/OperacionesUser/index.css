@@ -1,0 +1,35 @@
+ul, ol, li {
+    text-decoration: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-table{
+    width: 100%;
+    display: flex;
+    align-content: space-around;
+    justify-content: space-around;
+}
+
+.op-table {
+    width: 100%;
+    height: auto;
+    background-color: white;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.7);
+    border-radius: 40px;
+    margin: 20px 15px;
+    padding: 30px;
+}
+
+li {
+    width: 100%;
+    border-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px;
+    border: 2px solid;
+    margin-bottom: 5px;
+    border-radius: 40px;
+}
