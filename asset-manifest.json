@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/alkemy-octubre/static/css/main.4fb511cb.chunk.css",
-    "main.js": "/alkemy-octubre/static/js/main.6f37405a.chunk.js",
-    "main.js.map": "/alkemy-octubre/static/js/main.6f37405a.chunk.js.map",
+    "main.js": "/alkemy-octubre/static/js/main.d67fb50d.chunk.js",
+    "main.js.map": "/alkemy-octubre/static/js/main.d67fb50d.chunk.js.map",
     "runtime-main.js": "/alkemy-octubre/static/js/runtime-main.0503ab04.js",
     "runtime-main.js.map": "/alkemy-octubre/static/js/runtime-main.0503ab04.js.map",
     "static/js/2.a51997e9.chunk.js": "/alkemy-octubre/static/js/2.a51997e9.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.0503ab04.js",
     "static/js/2.a51997e9.chunk.js",
     "static/css/main.4fb511cb.chunk.css",
-    "static/js/main.6f37405a.chunk.js"
+    "static/js/main.d67fb50d.chunk.js"
   ]
 }
