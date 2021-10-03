@@ -3,7 +3,6 @@ import React,{ useState} from 'react'
 import RegisterPage from '../RegisterPage';
 import './index.css'
 
-
 const LoginPage = (props) => {
 
     const { setLogin, setMessage, setAuthorization } = props;
@@ -42,20 +41,27 @@ const LoginPage = (props) => {
                 email,
                 password
             }).then(res => {
-                setMessage({
-                    show: true,
-                    message: res.data.message
-                })
-                // console.log(res.data)
-                localStorage.setItem("Token", res.data.token)
-                setAuthorization({
-                    username: "",
-                    balance: 0,
-                    token: res.data.token
-                })
-                setTimeout(() => {
-                    setLogin(true)
-                }, 3000)
+                if(res.data.status === 200) {
+                    setMessage({
+                        show: true,
+                        message: res.data.message
+                    })
+                    // console.log(res.data)
+                    localStorage.setItem("Token", res.data.token)
+                    setAuthorization({
+                        username: "",
+                        balance: 0,
+                        token: res.data.token
+                    })
+                    setTimeout(() => {
+                        setLogin(true)
+                    }, 3000)    
+                } else {
+                    setMessage({
+                        show: true,
+                        message: res.data.message
+                    })
+                }
             })
 
         }

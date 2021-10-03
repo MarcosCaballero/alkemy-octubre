@@ -15,17 +15,7 @@ const Home = props => {
 
     let [ data, setData ] = useState([]) //Operaciones del Usuario
 
-    // const [ username, setUsername ] = useState('')
-    // const [ amount, setAmount ] = useState(0); // Hooks para balance
-    // const [ token, setToken ] = useState("");
-
     const [ reloading, setReloading ] = useState(false) //Cuando se genere alguna accion
-
-    // useEffect(() => {
-    //     setAmount(authorization.balance)
-    //     setUsername(authorization.username)
-    //     // setToken(authorization.token)
-    // }, [authorization])
 
     useEffect(() => { //Petición de datos si se encuentra autenticado el usuario y se actualiza si el usuario crea, borra y/o modifica
 
@@ -42,7 +32,7 @@ const Home = props => {
                     balance: res.data.balance
                 })
             })
-            axios.get("http://localhost:3500/api/operaciones", {
+            axios.get(process.env.REACT_APP_GET_OPS_ROUTE, {
                 headers: {
                 "authorization": authorization.token,
             }}
@@ -51,8 +41,10 @@ const Home = props => {
                     setData(res.data.data)
                     setReloading(false)    
                 } else {
-                    console.log("UN Error")
-                    // setMessage(res.data.message)
+                    setMessage({
+                        show: true,
+                        message: "Algo salio mal"
+                    })
                 }
             });
         } else {
@@ -66,7 +58,6 @@ const Home = props => {
                 <h1>Bienvenid@ { authorization.username }</h1>
                 <div>
                     <BalanceCuenta amount={authorization.balance}/>
-                    {/* <Categories />  */}
                     <OperacionesUser setMessage={ setMessage } setReloading={setReloading} data={data}/>
                     <AddData token={ authorization.token }categories={ categorias_list } setMessage={ setMessage } setReloading={setReloading}/>
                 </div>
