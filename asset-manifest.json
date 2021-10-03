@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/alkemy-octubre/static/css/main.4fb511cb.chunk.css",
+    "main.js": "/alkemy-octubre/static/js/main.1c477072.chunk.js",
+    "main.js.map": "/alkemy-octubre/static/js/main.1c477072.chunk.js.map",
+    "runtime-main.js": "/alkemy-octubre/static/js/runtime-main.0503ab04.js",
+    "runtime-main.js.map": "/alkemy-octubre/static/js/runtime-main.0503ab04.js.map",
+    "static/js/2.ac4be726.chunk.js": "/alkemy-octubre/static/js/2.ac4be726.chunk.js",
+    "static/js/2.ac4be726.chunk.js.map": "/alkemy-octubre/static/js/2.ac4be726.chunk.js.map",
+    "static/js/3.47d47910.chunk.js": "/alkemy-octubre/static/js/3.47d47910.chunk.js",
+    "static/js/3.47d47910.chunk.js.map": "/alkemy-octubre/static/js/3.47d47910.chunk.js.map",
+    "index.html": "/alkemy-octubre/index.html",
+    "static/css/main.4fb511cb.chunk.css.map": "/alkemy-octubre/static/css/main.4fb511cb.chunk.css.map",
+    "static/js/2.ac4be726.chunk.js.LICENSE.txt": "/alkemy-octubre/static/js/2.ac4be726.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0503ab04.js",
+    "static/js/2.ac4be726.chunk.js",
+    "static/css/main.4fb511cb.chunk.css",
+    "static/js/main.1c477072.chunk.js"
+  ]
+}
