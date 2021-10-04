@@ -37,15 +37,15 @@ const Home = props => {
                 "authorization": authorization.token,
             }}
             ).then(res => {
-                if(res.data !== 0){
-                    setData(res.data.data)
-                    setReloading(false)    
-                } else {
-                    setMessage({
-                        show: true,
-                        message: "Algo salio mal"
-                    })
-                }
+                setData(res.data.data)
+                setReloading(false)
+                // if(res.data){
+                // } else {
+                //     setMessage({
+                //         show: true,
+                //         message: "Algo salio mal"
+                //     })
+                // }
             });
         } else {
             return
@@ -59,7 +59,7 @@ const Home = props => {
                 <div>
                     <BalanceCuenta amount={authorization.balance}/>
                     <OperacionesUser setMessage={ setMessage } setReloading={setReloading} data={data}/>
-                    <AddData token={ authorization.token }categories={ categorias_list } setMessage={ setMessage } setReloading={setReloading}/>
+                    <AddData token={ authorization.token } categories={ categorias_list } setMessage={ setMessage } setReloading={setReloading}/>
                 </div>
             </div>
         </div>

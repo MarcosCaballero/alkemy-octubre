@@ -4,7 +4,7 @@ import axios from 'axios'
 
 const ModData = props => {
 
-    const { modId, op, setMessage, setReloading} = props
+    const { token, modId, op, setMessage, setReloading} = props
 
     // UseStates componente
     const [ visible, setVisible ] = useState(false);
@@ -16,13 +16,13 @@ const ModData = props => {
         date: op.op_date.split("T")[0],
     })
 
-    const onHandleChange = (e) => {
+    const onHandleChange = (e) => { //Funcion para poder tomar los datos que el usuario tipee
         setData({
             ...data,
             [e.target.name]: e.target.value})
     }
 
-    const onHandleSubmit = (e) => {
+    const onHandleSubmit = async (e) => { //Realiza la peticion de modificacion a la base de datos
         e.preventDefault()
         if(data.concept === "" || data.date === "0000-00-00" || data.date === "") {
             console.log('Completa los campos faltantes')
@@ -37,11 +37,12 @@ const ModData = props => {
                 ...data,
                 amount: op.amount})
         } else {
-            // Esto crea datos y los parsea 
-            // Hay que crear fetch y response que retorne el id del elemento
-            axios.put(`${process.env.REACT_APP_MODIFY_OPERATION}`, {
-                params:{
-                    id: modId
+            // Una vez que los datos del usuario cumplen con los verificadores se ejecuta la lamada a la base de datos
+            const token = await localStorage.getItem("Token") //Se llama al token del usuario
+            axios.put(`${process.env.REACT_APP_MODIFY_ROUTE}/${modId}`, data, {
+                headers: {
+                    "authorization": token,
+                    "Content-Type": "application/json"
                 }
             }).then(res => {
                 console.log(res)
@@ -56,13 +57,13 @@ const ModData = props => {
         }
     }
 
-    const onClose = () => {
+    const onClose = () => { // Funcion para mostrar y ocultar el formulario
         setVisible(false)
     }
 
     return (
         <div>
-            <button onClick={() => visible ? onClose() : setVisible(true)} >Modificar Elemento</button>
+            <button className="form-button modify" onClick={() => visible ? onClose() : setVisible(true)} >Modificar Elemento</button>
             {visible
             ? <form onSubmit={(e) => onHandleSubmit(e) }>
                 <input  
@@ -84,6 +85,7 @@ const ModData = props => {
                     onChange={onHandleChange}
                 />
                 <input 
+                    className="form-button "
                     type="submit"
                 />
             </form>

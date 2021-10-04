@@ -14,10 +14,10 @@ const { data, setReloading, setMessage} = props;
 
     const Render = async (data) => {
       const renderIncome = await data.filter(op => op.op_type === 'income').map(op => (
-        <li key={op.id_operations}><span>{op.concept}</span>${op.amount} <ModData modId={op.id_operations} op={op} setReloading={setReloading} setMessage={ setMessage }/> <DelData delId={ op.id_operations } setReloading={ setReloading } setMessage={ setMessage }/></li>
+        <li key={op.id_operations}><span>{op.concept}</span>${op.amount} <ModData modId={op.id_operations} op={op} setReloading={ setReloading } setMessage={ setMessage }/> <DelData delId={ op.id_operations } setReloading={ setReloading } setMessage={ setMessage }/></li>
       ))
       const renderExpense = await data.filter(op => op.op_type === 'expense').map(op => (
-        <li key={op.id_operations}><span>{op.concept}</span>${op.amount} <ModData modId={op.id_operations} op={op} setReloading={setReloading} setMessage={ setMessage }/> <DelData delId={ op.id_operations } setReloading={ setReloading } setMessage={ setMessage }/></li>
+        <li key={op.id_operations}><span>{op.concept}</span>${op.amount} <ModData modId={op.id_operations} op={op} setReloading={ setReloading } setMessage={ setMessage }/> <DelData delId={ op.id_operations } setReloading={ setReloading } setMessage={ setMessage }/></li>
       ))
       
       if(renderIncome.length !== 0){
@@ -31,6 +31,8 @@ const { data, setReloading, setMessage} = props;
     }
 
     useEffect(() => {
+      setRenderEx([])
+      setRenderIn([])
       Render(data)
     }, [data]) // Render , setReloading
 

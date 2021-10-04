@@ -49,16 +49,25 @@ const AddData = props => {
                 show: true,
                 message: 'Ingresa un dato de monto que no sea negativo o igual a 0'
             })
-        } else {
-            // Esto crea datos y los parsea 
-            // Hay que crear fetch y response que retorne el id del elemento
-            const token = await localStorage.getItem("Token")
+        } else { //Una vez se verifican los datos ingresados por el usuario y estos son correctos se ejecuta la llamada a la api y se impacta en la base de datos
+            const token = await localStorage.getItem("Token") //Se llama al token del usuario
             axios.post(process.env.REACT_APP_CREATE_ROUTE, data, {
                 headers: {
                     "authorization": token,
                 }
             }).then(res => {
-                    console.log(res) 
+                    setMessage({
+                        show: true,
+                        message: res.data.message
+                    })
+                    setData({
+                        concept: "",
+                        amount: 0,
+                        op_type: "",
+                        op_date: "",
+                        category: "otros", //default otros
+                        modified_at: null, //Estatico solo cambia con la operacion de modify
+                    })
                     setTimeout(() => {
                         setReloading(true)
                     }, 3000)
@@ -68,7 +77,7 @@ const AddData = props => {
 
     return (
         <div>
-            <button onClick={() => visible ? setVisible(false) : setVisible(true)}>Crear operación</button>
+            <button className="form-button create" onClick={() => visible ? setVisible(false) : setVisible(true)}>Crear operación</button>
             {visible
             ? <form className="add-form" onSubmit={(e) =>  HandleFormSend(e) }>
                 <div>
@@ -126,7 +135,7 @@ const AddData = props => {
                     onChange={onHandleChange}
                     />
                 </div>
-                <input type="submit" />
+                <input className="form-button" type="submit" />
             </form>
             : null}
         </div>
